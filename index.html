@@ -84,7 +84,57 @@
         nav ul li a:hover {
             color: var(--primary);
         }
-        
+        /* Menu Mobile Toggle */
+.mobile-menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary);
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+    }
+        nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: white;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+        padding: 10px 0;
+    }
+    
+    nav ul.active {
+        display: flex;
+    }
+    
+    nav ul li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 15px;
+        font-size: 1rem;
+        width: 100%;
+    }
+    
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+}
         /* Hero Section */
         .hero {
     background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), 
@@ -370,26 +420,126 @@
             color: rgba(255,255,255,0.7);
         }
         
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 15px;
-                justify-content: center;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-        }
+      /* Responsive */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+        position: relative;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    
+    nav ul {
+        margin-top: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    nav ul li {
+        margin-left: 8px;
+        margin-right: 8px;
+        margin-bottom: 5px;
+    }
+    
+    nav ul li a {
+        font-size: 0.85rem;
+        padding: 5px 8px;
+        white-space: nowrap;
+    }
+    
+    .about-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    .about-image img {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .about-image::after {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .hero {
+        padding: 50px 0;
+    }
+    
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-section {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        gap: 5px;
+    }
+    
+    nav ul li {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    
+    nav ul li a {
+        font-size: 0.8rem;
+        padding: 4px 6px;
+    }
+    
+    .logo h1 {
+        font-size: 1.3rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .product-card {
+        margin: 0 10px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -401,6 +551,9 @@
                     <i class="fas fa-leaf logo-icon"></i> <!--ICONE LOGO-->
                     <h1>Ser Natural</h1>
                 </div>
+                <div class="mobile-menu-toggle">
+         <i class="fas fa-bars"></i>
+       </div>
                 <nav>
                     <ul>
                         <li><a href="#home">Início</a></li>
@@ -944,6 +1097,38 @@
 
         document.addEventListener('click', enableAudio, { once: true });
         document.addEventListener('touchstart', enableAudio, { once: true });
+        
+         // Código para o menu mobile
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+    const navLinks = document.querySelectorAll('nav ul li a');
+    
+    // Toggle do menu hambúrguer
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+    }
+    
+    // Fechar menu quando um link for clicado
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+        });
+    });
+    
+    // Fechar menu quando clicar fora dele
+    document.addEventListener('click', function(event) {
+        const isClickInsideMenu = navMenu.contains(event.target);
+        const isClickOnToggle = menuToggle.contains(event.target);
+        
+        if (!isClickInsideMenu && !isClickOnToggle && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+        }
+    });
+});
+    
     </script>
 </body>
 </html>
