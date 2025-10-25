@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ser Natural - Cosméticos e Alimentos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a7c59;
+            --secondary: #8fb996;
+            --light: #f5f9f5;
+            --dark: #2d4a3a;
+            --accent: #c8e6c9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-left: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), 
+                url('https://images.unsplash.com/photo-1563241527-3004b7be0ffd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+        
+        /* About Section */
+.about {
+    padding: 90px 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fdf8 50%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--accent) 0%, transparent 70%);
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.about-text {
+    flex: 1;
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.about-text p {
+    font-size: 1.12rem;
+    margin-bottom: 25px;
+    color: #555;
+    line-height: 1.8; /* Aumentei para melhor legibilidade */
+    text-align: justify;
+    font-family: inherit;
+    font-weight: 400;
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.about-image::after {
+    content: '';
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--primary), var(--secondary), var(--accent), var(--primary));
+    opacity: 0.1;
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.about-image img {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%; /* GARANTE FORMA REDONDA */
+    object-fit: contain; /* MANTÉM A PROPORÇÃO DA IMAGEM */
+    object-position: center; /* CENTRALIZA A IMAGEM */
+    background: white;
+    padding: 15px; /* REDUZI UM POUCO O PADDING */
+    box-shadow: 
+        0 20px 40px rgba(74, 124, 89, 0.12),
+        0 0 0 1px rgba(74, 124, 89, 0.05);
+    border: 6px solid white;
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.08);
+    box-shadow: 
+        0 30px 60px rgba(74, 124, 89, 0.18),
+        0 0 0 1px rgba(74, 124, 89, 0.1);
+}
+
+/* Garantir que a imagem seja quadrada para ficar redonda */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .about-image img {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .about-image::after {
+        width: 260px;
+        height: 260px;
+    }
+}
+.section-title {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+/* Products Section */
+.products {
+    padding: 60px 0;
+    background-color: var(--light);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .product-name {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .product-description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            /*height: 150px;
+            overflow: hidden;*/
+            line-height: 1.4;
+            flex: 1;
+        }
+        
+        .product-price {
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: bold;
+            margin-bottom: 15px;
+            /*margin-top: auto;*/
+        }
+        
+        .buy-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+            text-decoration: none;
+            margin-top: auto;
+        }
+        
+        .buy-btn:hover {
+            background-color: var(--dark);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-leaf logo-icon"></i> <!--ICONE LOGO-->
+                    <h1>Ser Natural</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#perfumes">Perfumes</a></li>
+                        <li><a href="#serums">Serums</a></li>
+                        <li><a href="#hidratantes">Hidratantes</a></li>
+                        <li><a href="#chas">Chás</a></li>
+                        <li><a href="#oleos">Óleos</a></li>
+                        <li><a href="#kids">Crianças</a></li>
+                        <li><a href="#supplements">Suplementos</a></li>
+                        <li><a href="#skincare">SkinCare</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+ 
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Bem-vindo à Ser Natural</h2>
+            <p>Descubra a essência da natureza em nossos cosméticos e alimentos. Produtos cuidadosamente selecionados para uma vida mais saudável e sustentável.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Nós</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Na Ser Natural, acreditamos que a verdadeira beleza e saúde vêm da natureza. Nossos produtos são desenvolvidos com ingredientes 100% naturais, livres de químicos agressivos e testados com responsabilidade.</p>
+                    <p>Combinamos tradição e inovação para criar fragrâncias únicas que capturam a essência pura da natureza, enquanto nossos alimentos orgânicos nutrem seu corpo de dentro para fora.</p>
+                    <p>Nossa missão é promover um estilo de vida mais consciente e sustentável, oferecendo alternativas naturais que respeitam tanto você quanto o meio ambiente.</p>
+                </div>
+                <div class="about-image">
+                    <img src="imagens/logo.png" alt="Produtos naturais">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+            <!-- Perfumes Section -->
+    <section class="products" id="perfumes">
+        <div class="container">
+            <h2 class="section-title">Nossos Perfumes</h2>
+            <p>Descubra nossa coleção exclusiva de Eau de Parfum, cada um com uma história única inspirada na natureza.</p>
+            
+            <div class="products-grid">
+                <!-- Produto 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/perfumes/flora_n1.jpeg" alt="Flora Nº 1">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Flora Nº 1</h3>
+                        <p class="product-description">Inspirado no clássico Coco Mademoiselle, traz uma fragância elegante e envolvente, combinando notas floreais e cítrica com um toque amadeirado que transmite sofisticação e feminilidade.</p>
+                        <p class="product-price">R$ 240,00</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o perfume Flora Nº 1" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+
+                <!-- Produto 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/perfumes/flora_n2.jpeg" alt="Flora Nº 2">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Flora Nº 2</h3>
+                        <p class="product-description">Inspirado no luxuoso Baccarat Rouge, envolve a pela com uma fragância doce, ambarada e sofisticada, que mistura calor e eleganância em um perfume marcante e inesquecível.</p>
+                        <p class="product-price">R$ 249,00</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o perfume Flora Nº 2" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+
+                <!-- Produto 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/perfumes/belle.jpeg" alt="Belle">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Belle</h3>
+                        <p class="product-description">Inspirado no clássico La VIe Est Belle, traz uma fragância floral gourmaund radiante, com uma abertura frutada alegre e um coração floral delicado que evolui para um fundo gourmaund cremoso e envolvente. Uma versão moderna da felicidade em forma de perfume.</p>
+                        <p class="product-price">R$ 228,00</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o perfume Belle" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+                <!--Produto 4-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/perfumes/new_joy.jpeg" alt=" New Joy">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">New Joy</h3>
+                        <p class="product-description">Um perfume fresco e apaixonante, com saída cítrica de mandarina e bergamota, corpo floral de flor de laranjeira, lírio-do-vale e rosa branca, e fundo envolvente de musk, âmbar e sândalo. Uma fragância romântica e elegante que toca a alma feminina.
+                        </p>
+                        <p class="product-price">R$ 228,00</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o perfume New Joy" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+                
+                <!--Produto 5-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/perfumes/helena.jpeg" alt="Helena">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Helena</h3>
+                        <p class="product-description">Inspirado no icônico Santal 33, traz uma fragância amadeirada e sofisticada, com toques cremosos e quentes que transmitem personalidade e elegância em cada borrifada.</p>
+                        <p class="product-price">R$ 210,00</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o perfume Helena" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+
+                <!--Produto 6-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/perfumes/lilia_boaventura.jpeg" alt="Zélia Boaventura">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Zélia Boaventura</h3>
+                        <p class="product-description">Inspirado no elegante Elie Saab, traz uma fragância floral-luxuosa e solar, com notas luminosas de flor de laranjeira e jasmim, evoluindo para toques amadeirados e um fundo levemente doce que transmite feminilidade e refinamento. Uma essência radiante para momentos especiais</p>
+                        <p class="product-price">R$ 178,00</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o perfume Zélia Boaventura" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+               
+                <!--Produto 7-->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="imagens/perfumes/xodo.jpeg" alt="Xodó">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Xodó</h3>
+                            <p class="product-description">Inspirado no icônico 212 Sey VIP, traz uma fragância sedutora e envolvente, notas adocicads e florais que combinam elegância e sensualidade na medida certa. Um perfume feito para marcar presença em qualquer ocasião.</p>
+                            <p class="product-price">R$ 218,00</p>
+                            <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o perfume Xodó" class="buy-btn">Comprar</a>
+                        </div>
+                    </div>
+
+                    
+                    <!--Produto 8-->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="imagens/perfumes/ambience.jpeg" alt="Ambiance">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Ambiance</h3>
+                            <p class="product-description">Uma fragância para mulheres confiantes e cheia de luz! Com notas frutadas de pera e cassis, um cração floral vibrante com rosa, narciso, tuberosa e flor de laranjeira, e um toque final cremoso de avelão e sândalo.</p>
+                            <p class="product-price">R$ 210,00</p>
+                            <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o perfume Ambiance" class="buy-btn">Comprar</a>
+                        </div>
+                    </div>
+                    
+                    
+                    <!--Produto 9-->
+                    <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/perfumes/celeste_delicate_woman.jpeg" alt="Celeste Delicate Woman">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Celeste Delicate Woman</h3>
+                        <p class="product-description">Uma fragância feminina e refinada, com uma abertura fresca de cassis e bergamota, um coração floral envolvente de jasmin e rosas, um fundo sedutor de musk branco, baunilha e cedro. Uma experiência olfativa cativante e duradoura.</p>
+                        <p class="product-price">R$ 210,00</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o perfume Celeste Delicate   Woman" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+
+                                <!-- Produto 10-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/perfumes/day_woman.jpeg" alt="Dany Woman">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Dany Woman</h3>
+                        <p class="product-description">Inspirado no elegante Elisée, esta fragância feminina combina notas florais delicadas com um toque amadeirado suave, criando uma essência sofisticada e envolvente. Ideal para mulheres que buscam um perfume que exale elegância e charme em cada borrifada.</p>
+                        <p class="product-price">R$ 189,00</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o perfume Dany Woman" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+
+                <!--Produto 11-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/perfumes/zafirah.jpeg" alt="Zafirah">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Zafirah</h3>
+                        <p class="product-description">Uma fragância envolvente e ousada, com notas de saída de laranja sanguínea e mandarina, que se combinam com coração doce de mel, gârdenia, flor de laranjeira, jasmin e pêssego. As notas de fundo de cera de abelha, caramelo, patchouli e alcaçuz conferem profundidade e sensualidade à composição. Uma essência para mulheres confiantes e apaixonadas.</p>
+                        <p class="product-price">R$ 189,00</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o perfume Zafirah" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+
+                <!--Produto 12-->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/perfumes/rosa_mosqueta.jpeg" alt="Rosa Mosqueta">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Rosa Mosqueta</h3>
+                        <p class="product-description">Uma fragância sofisticada e elegante, com abertura fresca de champanhe rosé e pimenta rosa, coração floral de flor de pêssego e rosa, e fundo quente de almíscar branco e notas amadeiradas. Perfeita para momentos especiais e inesquecíveis.</p>
+                        <p class="product-price">R$ 240,00</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o perfume Rosa Mosqueta" class="buy-btn">Comprar</a>
+                    </div>
+                </div>  
+                    <!--Produto 13-->
+                    <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/perfumes/dulce_romance.jpeg" alt="Dulce Romance">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Dulce Romance</h3>
+                        <p class="product-description">Inspirado no poderoso Versace Eros, traz uma fragância doce e marcante, que combina notas frescas e vibrantes com um fundo envolvente, ideal para mulheres apaixonadas e cheias de energia.</p>
+                        <p class="product-price">R$ 240,00</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o perfume Dulce Romance" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+                   
+                <!--FINAL DOS PERFUMES-->
+
+            </div> 
+        </div> <!-- FECHAMENTO CORRETO DO container -->
+    </section> <!-- FECHAMENTO CORRETO DA SECTION -->
+
+
+
+
+
+    
+    <!-- Serums Section -->
+    <section class="products" id="serums">
+        <div class="container">
+            <h2 class="section-title">Serums Faciais</h2>
+            <p>Concentrados de ativos naturais para uma pele radiante e saudável.</p>
+            
+            <div class="products-grid">
+                <!-- Serum 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/flora_pura.png" alt="Serum Vitamina C">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Serum Vitamina C</h3>
+                        <p class="product-description">Antioxidante poderoso que ilumina e uniformiza o tom da pele.</p>
+                        <p class="product-price">R$ 89,90</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o Serum Vitamina C" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+                
+               
+                <!-- Adicione mais serums aqui -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Hidratantes Section -->
+    <section class="products" id="hidratantes">
+        <div class="container">
+            <h2 class="section-title">Hidratantes Corporais</h2>
+            <p>Hidratação profunda com ingredientes 100% naturais para sua pele.</p>
+            
+            <div class="products-grid">
+                <!-- Hidratante 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/hidratante/hidratante_rosa_mosqueta.png" alt="Hidratante de Rosa Mosqueta">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Hidratante de Rosa Mosqueta</h3>
+                        <p class="product-description">Lembrando que a nossa linha de Rosa Mosqueta foi totalmente reformulada e agora <b>é totalmente vegana, livre de petrolatos e parabenos,</b>mas com aquela fragrância incrível que vocês já conhecem.</p>
+                        <p class="product-price">R$ 45,90</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o Hidratante de Rosa Mosqueta" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+                
+               
+                
+                <!-- Adicione mais hidratantes aqui -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Chás Section -->
+    <section class="products" id="chas">
+        <div class="container">
+            <h2 class="section-title">Chás Naturais</h2>
+            <p>Blends especiais de chás para bem-estar e saúde.</p>
+            
+            <div class="products-grid">
+                <!-- Chá 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/cha/lipo_flora_cap.png" alt="Lipo Flora Capsúlas">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Lipo Flora Capsúlas</h3>
+                        <p class="product-description">O Lipo Flora da Flora Pura serve para auxiliar programas de emagrecimento saudável, pois ajuda a controlar o apetite e a saciedade, acelera o metabolismo, tem efeito termogênico e auxilia na desintoxicação do organismo. Ele também contribui para a redução do inchaço e da retenção de líquidos, além de ajudar no funcionamento digestivo.</p>
+                        <p class="product-price">R$ 35,00</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o Lipo Flora Capsúlas" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+                
+               
+                
+                <!-- Adicione mais chás aqui -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Óleos Section -->
+    <section class="products" id="oleos">
+        <div class="container">
+            <h2 class="section-title">Óleos Essenciais</h2>
+            <p>Óleos puros para aromaterapia e cuidados naturais.</p>
+            
+            <div class="products-grid">
+                <!-- Óleo 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/oleos/oleo_uva.png" alt="Óleo de Semente Uva">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Óleo de Semente Uva</h3>
+                        <p class="product-description">Hidratante e nutritivo, ideal para todos os tipos de pele.</p>
+                        <p class="product-price">R$ 34,90</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o Óleo de Semente Uva" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+                
+                <!-- Óleo 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/oleos/oleo_capilar_termico_azul.png" alt="Óleo Capilar Térmico">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Óleo Capilar Térmico</h3>
+                        <p class="product-description">Cabelos mais disciplinados. Redução de pontas duplas, deixa os cabelos macios e fáceis de pentear com brilho impecável.</p>
+                        <p class="product-price">R$ 39,90</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o Óleo Capilar Térmico" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+                
+                <!-- Adicione mais óleos aqui -->
+            </div>
+        </div>
+
+         <!-- Banhos Section -->
+    <section class="products" id="banhos">
+        <div class="container">
+            <h2 class="section-title">Banhos de Ervas</h2>
+            <p>Experiências relaxantes com ervas naturais.</p>
+            
+            <div class="products-grid">
+                <!-- Banho 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/banho/kit_banho.png" alt="Kit Banho">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Banho de Verniz</h3>
+                        <p class="product-description">BANHO DE VERNIZ, é um tratamento desenvolvido para melhorar a fibra capilar, tem na sua formulação a queratina hidrolisada que é uma proteína constituída por 15 aminoácidos, sendo um deles bem predominante, chamado de cisteína.Essa substância tem a função de proteger e dar resistência a algumas estruturas do nosso corpo, principalmente o cabelo. O D-pantenol um hidratante poderoso e capaz de recuperar os cabelos. Tem ações anti-inflamatórias e deixam os cabelos macios, sem frizz e pontas duplas. Óleo de Algodão que retarda o envelhecimento dos tios, restaura a fibra capliar, fortalece, nutre e revitaliza o couro cabeludo.O kit vem com:Shampoo; Condicionador; Máscara capilar;Leave in.</p>
+                        <p class="product-price">R$ 110,90</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o Banho de Verniz" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+                
+               
+                
+                <!-- Adicione mais itens banho aqui -->
+            </div>
+        </div>
+
+
+         <!-- Crianças Section -->
+    <section class="products" id="kids">
+        <div class="container">
+            <h2 class="section-title">Linha Crianças</h2>
+            <p>Linha destinada ao cuidado e bem-estar dos pequenos.</p>
+            <div class="products-grid">
+                <!-- perfume 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/kids/perfume_kids.png" alt="Flora Baby Petit">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Flora Baby Petit</h3>
+                        <p class="product-description">A nova linha Flora Baby Petit chegou para encantar! +
+                                        Cuidado suave que vai da cabeça aos pés, com todo carinho que as crianças merecem.</p>
+                        <p class="product-price">R$ 34,90</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o Flora Baby Petit" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+                
+                <!-- hidratante 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/kids/kids.png" alt="Hidratante Kids">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Kit Flora Baby</h3>
+                        <p class="product-description">Com fragrância suave e fórmula pensada para a pele sensível das crianças, o Kit Flora Baby transforma os cuidados diários em gestos de amor. </p>
+                        <p class="product-price">R$ 39,90</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o Kit Flora Baby" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+                
+                <!-- Adicione mais óleos aqui -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Suplementos Section -->
+    <section class="products" id="supplements">
+        <div class="container">
+            <h2 class="section-title">Linha Suplementos</h2>
+            <p>Suplementação natural para mais força, energia e saúde. Potencialize seus resultados com a Creatina Flora Pura!</p>
+            <div class="products-grid">
+                <!-- suplemento 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/creatina/creatina_sabores.png" alt="Creatina Flora Pura">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Creatina Flora Pura</h3>
+                        <p class="product-description">A Creatina auxilia no aumento dos estoques e no armazenamento da creatina dentro do músculo, o que é fundamental para a produção da energia usada na contração muscular. A Creatina é um suplemento indispensável para quem deseja ganho de força e aumento de massa muscular.</p>
+                        <p class="product-price">R$ 80,00</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o Creatina Flora Pura" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+                <!-- suplemento 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/suplementos/sumplementos_alivfemme.png" alt="Alivfemme">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Alivfemme</h3>
+                        <p class="product-description">O Alivfemme é um suplemento natural que ajuda a aliviar os sintomas da TPM e da menopausa, proporcionando mais conforto e bem-estar. Com Extrato de semente de uva; Clecalciferol (vitamina D); Vitamina k2;Quercetina e Teanina.</p>
+                        <p class="product-price">R$ 80,00</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o Alivfemme" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+                 <!-- suplemento 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/suplementos/suplementos_complet.png" alt="Complet">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Complet</h3>
+                        <p class="product-description">O Complet é um suplemento natural que ajuda a aliviar os sintomas da TPM e da menopausa, proporcionando mais conforto e bem-estar. Com Extrato de semente de uva; Clecalciferol (vitamina D); Vitamina k2;Quercetina e Teanina.</p>
+                        <p class="product-price">R$ 80,00</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o Complet" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="skincare">
+        <div class="container">
+            <h2 class="section-title">Linha SkinCare</h2>
+            <p>Cuidados naturais para uma pele saudável e radiante.</p>
+            <div class="products-grid">
+                <!-- produto 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="imagens/skincare/skin_care_rosa_mosquesta.png" alt="Linha SkinCare Rosa Mosqueta">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Kit Skincare Rosa Mosqueta</h3>
+                        <p class="product-description">Sua pele merece esse carinho!
+                            A linha Rosa Mosqueta Flora Pura vem para transformar sua rotina de skincare: mais hidratação, viço e maciez todos os dias.
+                            Quem já usa, não vive sem, e quem prova, se apaixona no primeiro toque!</p>
+                        <p class="product-price">R$ 159,90</p>
+                        <a href="https://wa.me/5584987822766?text=Olá! Gostaria de comprar o Kit Skincare Rosa Mosqueta" class="buy-btn">Comprar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adicione mais produtos aqui -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ser Natural</h3>
+                    <p>Cosméticos e Alimentos naturais para uma vida mais saudável e sustentável.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/serna.tural/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5584987822766" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-phone"></i> (84) 98782-2766</p>
+                    <p><i class="fas fa-envelope"></i> @serna.tural</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Revendedora</h3>
+                    <p>Flora Pura - Andresa Silva</p>
+                   
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; ES. 2025. Ser Natural - Todos os direitos reservados</p>
+                 <p>Site desenvolvido por Erica Santos</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Áudio de fundo -->
+    <audio id="backgroundMusic" autoplay loop muted>
+        <!-- SUBSTITUA ESTA URL PELA SUA MÚSICA -->
+        <source src="audio/musica_natureza_paz.mp3" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <script>
+        // Código JavaScript para ativar o áudio
+        function enableAudio() {
+            const audio = document.getElementById('backgroundMusic');
+            if (audio) {
+                audio.muted = false;
+                audio.play().catch(error => {
+                    console.log('Autoplay bloqueado:', error);
+                });
+            }
+        }
+
+        document.addEventListener('click', enableAudio, { once: true });
+        document.addEventListener('touchstart', enableAudio, { once: true });
+    </script>
+</body>
+</html>
